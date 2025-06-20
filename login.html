@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lendu – Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+    body {
+      background: linear-gradient(to right, #dbeefd, #e0f2fe);
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: #1e293b;
+    }
+    .login-container {
+      background: #ffffff;
+      padding: 40px 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(30, 41, 59, 0.15);
+      max-width: 400px;
+      width: 100%;
+      animation: slide-in 0.6s ease;
+      text-align: center;
+    }
+    .login-container h2 {
+      margin-bottom: 24px;
+      color: #0c4a6e;
+      position: relative;
+      font-weight: 700;
+    }
+    /* Heart icon next to title */
+    .login-container h2::after {
+      content: " ♥";
+      color: #ef4444; /* soft red */
+      font-weight: 900;
+      font-size: 24px;
+      vertical-align: middle;
+      margin-left: 6px;
+      animation: heartbeat 1.5s infinite;
+    }
+    @keyframes heartbeat {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.3);
+      }
+    }
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+    .form-group label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 8px;
+      color: #334155;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 12px;
+      border: 1.5px solid #a5b4fc;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: border-color 0.3s ease;
+    }
+    .form-group input:focus {
+      border-color: #3b82f6;
+      outline: none;
+      box-shadow: 0 0 5px #3b82f6aa;
+    }
+    .login-btn {
+      background-color: #3b82f6;
+      color: white;
+      padding: 14px;
+      width: 100%;
+      border: none;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .login-btn:hover {
+      background-color: #2563eb;
+    }
+    .footer {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #475569;
+    }
+    .footer a {
+      color: #3b82f6;
+      text-decoration: none;
+      font-weight: 600;
+      position: relative;
+    }
+    /* Heart icon near register link */
+    .footer a::after {
+      content: " ♥";
+      color: #ef4444;
+      font-weight: 900;
+      margin-left: 4px;
+    }
+    .home-btn {
+      display: inline-block;
+      margin-top: 25px;
+      background: #f0f9ff;
+      color: #2563eb;
+      border: 1.5px solid #2563eb;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .home-btn:hover {
+      background-color: #2563eb;
+      color: white;
+    }
+    @keyframes slide-in {
+      from {
+        transform: translateY(30px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container" role="main" aria-label="Login to Lendu Platform">
+    <h2>Welcome Back to Lendu</h2>
+    <p style="color:#475569; margin-bottom: 30px;">
+      Supporting students across all universities with their basic needs and challenges.
+    </p>
+    <form action="login.php" method="POST" aria-describedby="loginInstructions">
+      <div class="form-group">
+        <label for="email">Student Email</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required aria-required="true" />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required aria-required="true" />
+      </div>
+      <button type="submit" class="login-btn">Login</button>
+    </form>
+    <div class="footer" id="loginInstructions">
+      Don't have an account? <a href="register.html">Register here</a>
+    </div>
+
+    <!-- Back to Home Button -->
+    <a class="home-btn" href="index.html" aria-label="Back to homepage">&larr; Back to Home</a>
+  </div>
+</body>
+</html>

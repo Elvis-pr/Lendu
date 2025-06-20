@@ -1,0 +1,148 @@
+
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lendu - Register</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: #f5f7fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .auth-container {
+      background: white;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 400px;
+      animation: fadeIn 0.5s ease-in;
+    }
+
+    .home-btn {
+      display: inline-block;
+      margin-top: 20px;
+      background: #ccc;
+      color: #333;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      text-align: center;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .home-btn:hover {
+      background: #bbb;
+    }
+
+    .auth-form h2 {
+      margin-bottom: 20px;
+      color: #2c3e50;
+      text-align: center;
+    }
+
+    .auth-form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    .auth-form input,
+    .auth-form select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      transition: 0.3s ease;
+    }
+
+    .auth-form input:focus,
+    .auth-form select:focus {
+      border-color: #274bae;
+      outline: none;
+    }
+
+    .auth-form button {
+      width: 100%;
+      background: #407dff;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .auth-form button:hover {
+      background: #3c7aff;
+    }
+
+    .auth-switch {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    .auth-switch a {
+      color: #ebaa55;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="auth-container">
+    <form class="auth-form" action="register.php" method="POST">
+      <h2>Create Your Account</h2>
+
+      <label for="fullname">Full Name</label>
+      <input type="text" id="fullname" name="full_name" required>
+
+      <label for="student_id">Student ID</label>
+      <input type="text" id="student_id" name="student_id" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required>
+
+      <label for="confirm_password">Confirm Password</label>
+      <input type="password" id="confirm_password" name="confirm_password" required>
+
+      <label for="role">I am a:</label>
+      <select id="role" name="role" required>
+        <option value="borrower">Borrower</option>
+        <option value="lender">Lender</option>
+      </select>
+
+      <button type="submit">Register</button>
+
+      <p class="auth-switch">
+        Already have an account? <a href="login.html">Login here</a>
+      </p>
+    </form>
+
+    <!-- Back to Home button at the bottom -->
+    <a class="home-btn" href="index.html">&larr; Back to Home</a>
+  </div>
+</body>
+</html>
