@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: lendu-php-app
+    env: php
+    plan: free
+    buildCommand: ""
+    startCommand: ""
+    branch: main
+    region: oregon # or frankfurt, london etc.
+    rootDir: .

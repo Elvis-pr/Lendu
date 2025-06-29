@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Register - LendU</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      background: #f5faff;
+      color: #222;
+    }
+    header {
+      background: linear-gradient(90deg, #00274d, #007acc);
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+    .logo { font-size: 1.8rem; font-weight: 700; }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      margin-left: 1rem;
+    }
+    nav a:hover { color: #e0f7ff; }
+
+    .register-container {
+      max-width: 500px;
+      background: white;
+      margin: 4rem auto;
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+    }
+
+    h2 {
+      text-align: center;
+      color: #00274d;
+      margin-bottom: 1rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-top: 1rem;
+      font-weight: 600;
+    }
+
+    input, select {
+      padding: 0.7rem;
+      margin-top: 0.3rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: border 0.3s ease;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      border-color: #007acc;
+      box-shadow: 0 0 0 3px rgba(0, 122, 204, 0.2);
+    }
+
+    .password-group {
+      position: relative;
+    }
+
+    .toggle-password {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.85rem;
+      color: #007acc;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    button {
+      margin-top: 2rem;
+      background: #007acc;
+      color: white;
+      padding: 0.9rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover { background: #005f99; }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: #00274d;
+      color: #fff;
+      font-size: 0.95rem;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+
+    footer div {
+      margin: 1rem;
+    }
+
+    footer a {
+      color: #b3d9ff;
+      text-decoration: none;
+      display: block;
+      margin: 6px 0;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    #message {
+      text-align: center;
+      font-weight: bold;
+      margin-top: 1rem;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 500px) {
+      .register-container {
+        margin: 2rem 1rem;
+        padding: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Lend<span style="color:#00d4ff;">U</span></div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="login.html">Login</a>
+    <a href="register.html">Register</a>
+  </nav>
+</header>
+
+<div class="register-container">
+  <h2>Create Your Account</h2>
+  <form id="registrationForm" autocomplete="off" method="POST" action="register.php">
+
+    <label for="name">Full Name</label>
+    <input type="text" name="name" id="name" required placeholder="Jermaine Cole">
+
+    <label for="email">Email Address</label>
+    <input type="email" name="email" id="email" required placeholder="you@example.com">
+
+    <label for="university">University</label>
+    <select name="university" id="university" required>
+      <option value="">-- Select Your University --</option>
+      <option value="INES-Ruhengeri">INES-Ruhengeri</option>
+      <option value="KIST">KIST</option>
+      <option value="Mount Kenya University">Mount Kenya University</option>
+      <option value="ULK - Kigali">ULK - Kigali</option>
+      <option value="UR - Huye">University of Rwanda - Huye</option>
+    </select>
+
+    <label for="role">Role</label>
+    <select name="role" id="role" required>
+      <option value="">-- Choose Role --</option>
+      <option value="borrower">Borrower</option>
+      <option value="lender">Lender</option>
+      <option value="admin">Admin</option>
+    </select>
+
+    <label for="password">Password</label>
+    <div class="password-group">
+      <input type="password" name="password" id="password" required minlength="6" placeholder="••••••••">
+      <span class="toggle-password" onclick="toggleVisibility('password', this)">Show</span>
+    </div>
+
+    <label for="confirm_password">Confirm Password</label>
+    <div class="password-group">
+      <input type="password" name="confirm_password" id="confirm_password" required placeholder="••••••••">
+      <span class="toggle-password" onclick="toggleVisibility('confirm_password', this)">Show</span>
+    </div>
+
+    <button type="submit">Register</button>
+  </form>
+
+  <div id="message"></div>
+</div>
+
+<footer>
+  <div>
+    <strong>LendU</strong><br>
+    Your trusted peer-to-peer lending platform for students.
+  </div>
+  <div>
+    <strong>Platform</strong><br>
+    <a href="index.html#about">About</a>
+    <a href="index.html#features">Features</a>
+    <a href="index.html#how">How it Works</a>
+  </div>
+  <div>
+    <strong>Resources</strong><br>
+    <a href="index.html#stats">Statistics</a>
+    <a href="index.html#testimonials">Testimonials</a>
+  </div>
+  <div>
+    <strong>Account</strong><br>
+    <a href="login.html">Login</a>
+    <a href="register.html">Register</a>
+  </div>
+  &copy; 2025 LendU. All rights reserved.
+</footer>
+
+<script>
+  function toggleVisibility(id, element) {
+    const input = document.getElementById(id);
+    if (input.type === 'password') {
+      input.type = 'text';
+      element.textContent = 'Hide';
+    } else {
+      input.type = 'password';
+      element.textContent = 'Show';
+    }
+  }
+
+  document.getElementById("registrationForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const formData = new FormData(form);
+    const msg = document.getElementById("message");
+
+    fetch('register.php', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+  const msg = document.getElementById("message");
+  msg.innerHTML = data;
+
+  if (data.includes("✅")) {
+    msg.style.color = "green";
+    // Redirect to login page after 2 seconds delay
+    setTimeout(() => {
+      window.location.href = "login.html";
+    }, 2000);
+  } else {
+    msg.style.color = "red";
+  }
+})
+
+    .catch(error => {
+      msg.textContent = "❌ Something went wrong. Please try again.";
+      msg.style.color = "red";
+      console.error("Error:", error);
+    });
+  });
+</script>
+
+</body>
+</html>
