@@ -1,10 +1,8 @@
 services:
   - type: web
     name: lendu-php-app
-    env: php
-    plan: free
-    buildCommand: ""
-    startCommand: ""
+    runtime: docker
+    repo: https://github.com/Elvis-pr/lendu
     branch: main
-    region: oregon # or frankfurt, london etc.
-    rootDir: .
+    plan: free
+    dockerfilePath: Dockerfile
