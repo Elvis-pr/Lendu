@@ -6,3 +6,5 @@ services:
     branch: main
     plan: free
     dockerfilePath: Dockerfile
+    RUN echo "DirectoryIndex index.php index.html" > /etc/apache2/conf-enabled/dir.conf
+
